@@ -51,7 +51,7 @@ public class Sentenciado implements Serializable {
     @JoinColumn(name = "faccao_id")
     private Faccao faccao;
     //Coleções
-    @ManyToMany(mappedBy = "sentenciados")
+    @ManyToMany(mappedBy = "sentenciados")// sentenciao é o nome do atributo na entidade sindicancia
     private List<Sindicancia> sindicancias = new ArrayList<>();
     
  

@@ -63,7 +63,7 @@ public class Sindicancia implements Serializable {
     @JoinTable(name= "sindicancia_sentenciado",joinColumns = {
     @JoinColumn(name="sindicancia_id")
     },
-    inverseJoinColumns = {@JoinColumn(name = "sindicancia_id")})
+    inverseJoinColumns = {@JoinColumn(name = "sentenciado_id")})
     private List<Sentenciado> sentenciados = new ArrayList<>();
     
 
