@@ -186,7 +186,7 @@ public class FormularioSindicancia extends javax.swing.JDialog {
         f.setSentenciados(listasentenciados);
         controlesindicancia.salvar(f);
         limparCampos();
-        //carregarLista();
+        //carregarLista(); // verificar mais tarde
        // atualizarTodasTabelas();
     }
 
