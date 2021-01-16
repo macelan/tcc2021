@@ -19,7 +19,7 @@ import javax.persistence.Table;
 public class Cela implements Serializable {
 
     @Id
-    //@GeneratedValue(strategy = GenerationType.SEQUENCE)
+    //@GeneratedValue(strategy = GenerationType.SEQUENCE)// sera adicionado manualmente o id
     @Column(name = "cela_id",nullable = false)
     private Integer id;
     @Column(name = "lotacao", nullable = false)
