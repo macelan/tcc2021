@@ -676,8 +676,8 @@ public class FormularioSindicancia extends javax.swing.JDialog {
 
     private void btExcluirSentenciadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluirSentenciadoActionPerformed
         // TODO add your handling code here:
-        SentenciadoDaSindicancia sentSind = listasentenciados.get(tbSentenciado.getSelectedRow());
-        controleSentenciadoDaSindicancia.excluir(sentSind);//removendo o item
+//        SentenciadoDaSindicancia sentSind = listasentenciados.get(tbSentenciado.getSelectedRow());
+//        controleSentenciadoDaSindicancia.excluir(sentSind);//removendo o item
         carregarLista();
         atualizarTodasTabelas();
       
