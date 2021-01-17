@@ -5,10 +5,12 @@
  */
 package br.edu.ifsp.tcc.pk;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Programar
  */
-public class MovimentacaoInternaPK {
+public class MovimentacaoInternaPK implements Serializable {
     
 }
