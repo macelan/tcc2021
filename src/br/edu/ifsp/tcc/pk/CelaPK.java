@@ -14,33 +14,30 @@ import java.util.Objects;
  */
 public class CelaPK implements Serializable{
     
-    private Integer funcionario_id;
-    private Integer sindicancia_id;
+    private Integer pavilhao_id;
+    private Integer cela_id;
 
-    public CelaPK() {
+    public Integer getPavilhao_id() {
+        return pavilhao_id;
     }
 
-    public Integer getFuncionario_id() {
-        return funcionario_id;
+    public void setPavilhao_id(Integer pavilhao_id) {
+        this.pavilhao_id = pavilhao_id;
     }
 
-    public void setFuncionario_id(Integer funcionario_id) {
-        this.funcionario_id = funcionario_id;
+    public Integer getCela_id() {
+        return cela_id;
     }
 
-    public Integer getSindicancia_id() {
-        return sindicancia_id;
-    }
-
-    public void setSindicancia_id(Integer sindicancia_id) {
-        this.sindicancia_id = sindicancia_id;
+    public void setCela_id(Integer cela_id) {
+        this.cela_id = cela_id;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 19 * hash + Objects.hashCode(this.funcionario_id);
-        hash = 19 * hash + Objects.hashCode(this.sindicancia_id);
+        hash = 97 * hash + Objects.hashCode(this.pavilhao_id);
+        hash = 97 * hash + Objects.hashCode(this.cela_id);
         return hash;
     }
 
@@ -56,14 +53,17 @@ public class CelaPK implements Serializable{
             return false;
         }
         final CelaPK other = (CelaPK) obj;
-        if (!Objects.equals(this.funcionario_id, other.funcionario_id)) {
+        if (!Objects.equals(this.pavilhao_id, other.pavilhao_id)) {
             return false;
         }
-        if (!Objects.equals(this.sindicancia_id, other.sindicancia_id)) {
+        if (!Objects.equals(this.cela_id, other.cela_id)) {
             return false;
         }
         return true;
     }
+
+   
+    
 
     
     
