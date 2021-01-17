@@ -62,10 +62,9 @@ public class CelaPK implements Serializable{
         return true;
     }
 
-   
-    
+    @Override
+    public String toString() {
+        return "CelaPK{" + "pavilhao_id=" + pavilhao_id + ", cela_id=" + cela_id + '}';
+    }
 
-    
-    
-    
 }
