@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 
 /**
@@ -28,7 +29,10 @@ public class Cela implements Serializable {
     @Column(name = "lotacao", nullable = false)
     private Integer lotacao;
     
+    @Id
+    @JoinColumn(name = "pavilhao_id", referencedColumnName = "pavilhao_id", insertable = false, updatable = false)
     private Pavilhao pavilhao;
+    
     private List<MovimentacaoInterna> movimentacoes = new ArrayList<>();
  
  
