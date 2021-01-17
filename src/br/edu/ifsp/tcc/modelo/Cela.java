@@ -1,5 +1,6 @@
 package br.edu.ifsp.tcc.modelo;
 
+import br.edu.ifsp.tcc.pk.CelaPK;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.Table;
 
 /**
@@ -16,6 +18,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "cela")
+@IdClass(CelaPK.class)
 public class Cela implements Serializable {
 
     @Id
