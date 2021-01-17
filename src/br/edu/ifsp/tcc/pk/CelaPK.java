@@ -17,6 +17,16 @@ public class CelaPK implements Serializable{
     private Integer pavilhao_id;
     private Integer cela_id;
 
+    public CelaPK() {
+    }
+
+    public CelaPK(Integer pavilhao_id, Integer cela_id) {
+        this.pavilhao_id = pavilhao_id;
+        this.cela_id = cela_id;
+    }
+
+    
+    
     public Integer getPavilhao_id() {
         return pavilhao_id;
     }
