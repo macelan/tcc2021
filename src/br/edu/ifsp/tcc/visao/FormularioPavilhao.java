@@ -544,7 +544,7 @@ public class FormularioPavilhao extends javax.swing.JDialog {
         // TODO add your handling code here:
         Cela c = new Cela();
         c.setId(Integer.parseInt(txtNumero.getText()));
-        c.setSigla(txtSigla.getText());
+        c.setLotacao(Integer.parseInt(txtLotacao.getText()));
         controle.salvar(f);
         limparCampos();
         carregarLista();
