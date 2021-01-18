@@ -8,6 +8,7 @@ package br.edu.ifsp.tcc.visao;
 import br.edu.ifsp.tcc.controle.ControlePavilhao;
 import br.edu.ifsp.tcc.modelo.Cela;
 import br.edu.ifsp.tcc.modelo.Pavilhao;
+import br.edu.ifsp.tcc.pk.CelaPK;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -378,7 +379,12 @@ public class FormularioPavilhao extends javax.swing.JDialog {
         });
 
         btnAdicionarCela.setFont(new java.awt.Font("Arial Unicode MS", 1, 14)); // NOI18N
-        btnAdicionarCela.setText("Adicionar");
+        btnAdicionarCela.setText("Adicionar Cela");
+        btnAdicionarCela.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAdicionarCelaMouseClicked(evt);
+            }
+        });
         btnAdicionarCela.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAdicionarCelaActionPerformed(evt);
@@ -394,7 +400,7 @@ public class FormularioPavilhao extends javax.swing.JDialog {
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtLotacao, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -534,6 +540,7 @@ public class FormularioPavilhao extends javax.swing.JDialog {
 
     private void txtNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtNumeroActionPerformed
 
     private void txtLotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLotacaoActionPerformed
@@ -543,7 +550,8 @@ public class FormularioPavilhao extends javax.swing.JDialog {
     private void btnAdicionarCelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarCelaActionPerformed
         // TODO add your handling code here:
         Cela c = new Cela();
-        c.setId(Integer.parseInt(txtNumero.getText()));
+        
+        c.setId(new CelaPK (Integer.parseInt(txtNumero.getText()),new Pavilhao()));
         c.setLotacao(Integer.parseInt(txtLotacao.getText()));
         controle.salvar(f);
         limparCampos();
@@ -551,6 +559,19 @@ public class FormularioPavilhao extends javax.swing.JDialog {
         atualizaTabela();
     
     }//GEN-LAST:event_btnAdicionarCelaActionPerformed
+
+    private void btnAdicionarCelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdicionarCelaMouseClicked
+        // TODO add your handling code here:
+        /// Aqui é com  o mouse
+        Cela c = new Cela();
+        
+        c.setId(new CelaPK (Integer.parseInt(txtNumero.getText()),new Pavilhao()));
+        c.setLotacao(Integer.parseInt(txtLotacao.getText()));
+        controle.salvar(f);
+        limparCampos();
+        carregarLista();
+        atualizaTabela();
+    }//GEN-LAST:event_btnAdicionarCelaMouseClicked
 
 /**
  * @param args the command line arguments

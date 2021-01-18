@@ -15,6 +15,7 @@
     <class>br.edu.ifsp.tcc.modelo.Sentenciado</class>
     <class>br.edu.ifsp.tcc.modelo.Sindicancia</class>
     <class>br.edu.ifsp.tcc.modelo.SentenciadoDaSindicancia</class>
+    <class>br.edu.ifsp.tcc.pk.CelaPK</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/bdtcc34?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="root"/>

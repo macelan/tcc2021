@@ -5,13 +5,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -20,25 +15,18 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "cela")
-@IdClass(CelaPK.class)
 public class Cela implements Serializable {
-
-    @Id
-    //@GeneratedValue(strategy = GenerationType.SEQUENCE)// sera adicionado manualmente o id
-    @Column(name = "cela_id",nullable = false)
-    private Integer id;
-    @Column(name = "lotacao", nullable = false)
-    private Integer lotacao;
     
-    @Id
-    @ManyToOne
-    @JoinColumn(name = "pavilhao_id", referencedColumnName = "pavilhao_id", insertable = false, updatable = false)
-    private Pavilhao pavilhao;
+    @EmbeddedId
+    private CelaPK id;
+    @Column(name = "lotacao", nullable = false)
+    private Integer lotacao; 
+ 
     
     private List<MovimentacaoInterna> movimentacoes = new ArrayList<>();
  
  
-////    @JoinColumn(name = "pav_cod", referencedColumnName = "pav_cod", insertable = false, updatable = false)
+////  @JoinColumn(name = "pav_cod", referencedColumnName = "pav_cod", insertable = false, updatable = false)
 //    @ManyToOne(optional = false)
 //    private Pavilhao pavilhao;
 //    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cela")
@@ -51,17 +39,16 @@ public class Cela implements Serializable {
     public Cela() {
     }
 
-    public Cela(Integer id, Integer numero, Integer lotacao, Pavilhao pavilhao) {
+    public Cela(CelaPK id, Integer lotacao) {
         this.id = id;
         this.lotacao = lotacao;
-        this.pavilhao = pavilhao;
     }
 
-    public Integer getId() {
+    public CelaPK getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(CelaPK id) {
         this.id = id;
     }
 
@@ -71,14 +58,6 @@ public class Cela implements Serializable {
 
     public void setLotacao(Integer lotacao) {
         this.lotacao = lotacao;
-    }
-
-    public Pavilhao getPavilhao() {
-        return pavilhao;
-    }
-
-    public void setPavilhao(Pavilhao pavilhao) {
-        this.pavilhao = pavilhao;
     }
 
     public List<MovimentacaoInterna> getMovimentacoes() {
@@ -91,8 +70,10 @@ public class Cela implements Serializable {
 
     @Override
     public String toString() {
-        return "Cela{" + "id=" + id + ", lotacao=" + lotacao + ", pavilhao=" + pavilhao + ", movimentacoes=" + movimentacoes + '}';
+        return "Cela{" + "id=" + id + ", lotacao=" + lotacao + ", movimentacoes=" + movimentacoes + '}';
     }
+
+
 
    
 
