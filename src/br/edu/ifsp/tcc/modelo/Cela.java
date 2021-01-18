@@ -7,6 +7,9 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -16,11 +19,17 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "cela")
 public class Cela implements Serializable {
+    @Id
+    private int Cela_id;
     
-    @EmbeddedId
-    private CelaPK id;
     @Column(name = "lotacao", nullable = false)
     private Integer lotacao; 
+     
+    @ManyToOne
+    @JoinColumn(name = "pavilhao_id", referencedColumnName = "pavilhao_id", insertable = false, updatable = false)
+    private Pavilhao pavilhao;
+    
+   
  
     
     private List<MovimentacaoInterna> movimentacoes = new ArrayList<>();
@@ -39,17 +48,18 @@ public class Cela implements Serializable {
     public Cela() {
     }
 
-    public Cela(CelaPK id, Integer lotacao) {
-        this.id = id;
+    public Cela(int Cela_id, Integer lotacao, Pavilhao pavilhao) {
+        this.Cela_id = Cela_id;
         this.lotacao = lotacao;
+        this.pavilhao = pavilhao;
     }
 
-    public CelaPK getId() {
-        return id;
+    public int getCela_id() {
+        return Cela_id;
     }
 
-    public void setId(CelaPK id) {
-        this.id = id;
+    public void setCela_id(int Cela_id) {
+        this.Cela_id = Cela_id;
     }
 
     public Integer getLotacao() {
@@ -58,6 +68,14 @@ public class Cela implements Serializable {
 
     public void setLotacao(Integer lotacao) {
         this.lotacao = lotacao;
+    }
+
+    public Pavilhao getPavilhao() {
+        return pavilhao;
+    }
+
+    public void setPavilhao(Pavilhao pavilhao) {
+        this.pavilhao = pavilhao;
     }
 
     public List<MovimentacaoInterna> getMovimentacoes() {
@@ -70,12 +88,9 @@ public class Cela implements Serializable {
 
     @Override
     public String toString() {
-        return "Cela{" + "id=" + id + ", lotacao=" + lotacao + ", movimentacoes=" + movimentacoes + '}';
+        return "Cela{" + "Cela_id=" + Cela_id + ", lotacao=" + lotacao + ", pavilhao=" + pavilhao + ", movimentacoes=" + movimentacoes + '}';
     }
 
-
-
-   
-
+    
 }
 

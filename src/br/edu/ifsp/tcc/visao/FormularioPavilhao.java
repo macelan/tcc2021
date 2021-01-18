@@ -8,7 +8,6 @@ package br.edu.ifsp.tcc.visao;
 import br.edu.ifsp.tcc.controle.ControlePavilhao;
 import br.edu.ifsp.tcc.modelo.Cela;
 import br.edu.ifsp.tcc.modelo.Pavilhao;
-import br.edu.ifsp.tcc.pk.CelaPK;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -39,7 +38,7 @@ public class FormularioPavilhao extends javax.swing.JDialog {
         DefaultTableModel dtm = (DefaultTableModel) jTableCela.getModel(); // manipulador de tabela DefaultTableModel
         dtm.setNumRows(0);//apagando todas as linhas / o zero serva para apagar as linhas "é muito rapido"
         for (Cela f : lista) {
-        dtm.addRow(new Object[]{f.getId(), f.getLotacao()}); // Object é um vetor ou coleção com ele não pecisa converter
+        dtm.addRow(new Object[]{f.getCela_id(), f.getLotacao()}); // Object é um vetor ou coleção com ele não pecisa converter
         }
 
     }
@@ -540,7 +539,6 @@ public class FormularioPavilhao extends javax.swing.JDialog {
 
     private void txtNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroActionPerformed
         // TODO add your handling code here:
-        
     }//GEN-LAST:event_txtNumeroActionPerformed
 
     private void txtLotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLotacaoActionPerformed
@@ -550,8 +548,7 @@ public class FormularioPavilhao extends javax.swing.JDialog {
     private void btnAdicionarCelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarCelaActionPerformed
         // TODO add your handling code here:
         Cela c = new Cela();
-        
-        c.setId(new CelaPK (Integer.parseInt(txtNumero.getText()),new Pavilhao()));
+        c.setCela_id(Integer.parseInt(txtNumero.getText()));
         c.setLotacao(Integer.parseInt(txtLotacao.getText()));
         controle.salvar(f);
         limparCampos();
@@ -564,8 +561,7 @@ public class FormularioPavilhao extends javax.swing.JDialog {
         // TODO add your handling code here:
         /// Aqui é com  o mouse
         Cela c = new Cela();
-        
-        c.setId(new CelaPK (Integer.parseInt(txtNumero.getText()),new Pavilhao()));
+        c.setCela_id(Integer.parseInt(txtNumero.getText()));
         c.setLotacao(Integer.parseInt(txtLotacao.getText()));
         controle.salvar(f);
         limparCampos();

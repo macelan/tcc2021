@@ -183,7 +183,11 @@ public class FormularioSindicancia extends javax.swing.JDialog {
         f.setRelato(txtAreaSindicancia.getText());
         f.setDataRegisto(new Date());
         f.setFuncionarios(listafuncionarios);
+        System.out.println(listafuncionarios);
+        System.out.println("cheguei ate aqui");
+        System.out.println(listasentenciados);
         f.setSentenciados(listasentenciados);
+        System.out.println(listasentenciados);
         controlesindicancia.salvar(f);
         limparCampos();
         //carregarLista(); // verificar mais tarde
@@ -643,6 +647,7 @@ public class FormularioSindicancia extends javax.swing.JDialog {
         tela.setSindicancia(f);// passando o sindicancia para a tela de pesquisa de sentenciaco para ser persistido
         tela.setVisible(true);
         listasentenciados.addAll(tela.getListaSentenciadosSelecionados());
+        System.out.println(listasentenciados);
         atualizaTabelaSentenciado();
             
      

@@ -303,6 +303,7 @@ public class ConsultarSentenciado extends javax.swing.JDialog {
         
     }//GEN-LAST:event_jButtonSelecionarActionPerformed
 
+    
     private void jButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairActionPerformed
         // TODO add your handling code here
         dispose();
