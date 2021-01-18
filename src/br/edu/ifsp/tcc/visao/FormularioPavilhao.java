@@ -34,11 +34,11 @@ public class FormularioPavilhao extends javax.swing.JDialog {
 
     }
 
-    public void atualizaTabelaCelas(Collection<Cela> lista) {
+    public void atualizaTabelaCelas(Collection<Cela> lista) { /// aqui recebo uma lista(Cololectin) de celas
         DefaultTableModel dtm = (DefaultTableModel) jTableCela.getModel(); // manipulador de tabela DefaultTableModel
         dtm.setNumRows(0);//apagando todas as linhas / o zero serva para apagar as linhas "é muito rapido"
         for (Cela f : lista) {
-//            dtm.addRow(new Object[]{f.getN(), f.getLotacao()}); // Object é um vetor ou coleção com ele não pecisa converter
+        dtm.addRow(new Object[]{f.getId(), f.getLotacao()}); // Object é um vetor ou coleção com ele não pecisa converter
         }
 
     }
@@ -521,7 +521,6 @@ public class FormularioPavilhao extends javax.swing.JDialog {
 
     private void jTablePavilhaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTablePavilhaoMouseClicked
         // TODO add your handling code here:
-//        vincularCampos();
         int linha;
         Pavilhao f;
         if (evt.getClickCount() == 1) {
@@ -531,7 +530,6 @@ public class FormularioPavilhao extends javax.swing.JDialog {
             atualizaTabelaCelas(f.getCelas());
             /// metodo burcar todos as celas do pavilhão
         }
-
     }//GEN-LAST:event_jTablePavilhaoMouseClicked
 
     private void txtNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroActionPerformed
@@ -545,8 +543,8 @@ public class FormularioPavilhao extends javax.swing.JDialog {
     private void btnAdicionarCelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarCelaActionPerformed
         // TODO add your handling code here:
         Cela c = new Cela();
-//        c.set(Integer.parseInt(txtNumero.getText()));
-  //      c.setSigla(txtSigla.getText());
+        c.setId(Integer.parseInt(txtNumero.getText()));
+        c.setSigla(txtSigla.getText());
         controle.salvar(f);
         limparCampos();
         carregarLista();
