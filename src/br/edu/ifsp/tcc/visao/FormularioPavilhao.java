@@ -37,10 +37,11 @@ public class FormularioPavilhao extends javax.swing.JDialog {
     public void atualizaTabelaCelas(Collection<Cela> lista) { /// aqui recebo uma lista(Cololectin) de celas
         DefaultTableModel dtm = (DefaultTableModel) jTableCela.getModel(); // manipulador de tabela DefaultTableModel
         dtm.setNumRows(0);//apagando todas as linhas / o zero serva para apagar as linhas "é muito rapido"
+        jTableCela.removeAll();
         for (Cela f : lista) {
         dtm.addRow(new Object[]{f.getCela_id(), f.getLotacao()}); // Object é um vetor ou coleção com ele não pecisa converter
         }
-
+       
     }
 
     private void trataEdicao(boolean editando) {
