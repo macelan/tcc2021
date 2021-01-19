@@ -14,14 +14,9 @@ import javax.persistence.Embeddable;
  *
  * @author Programar
  */
-@Embeddable
 public class CelaPK implements Serializable {
 
-    @Basic(optional = false)
-    @Column(name = "cela_id")
     private int celaId;
-    @Basic(optional = false)
-    @Column(name = "pavilhao_id")
     private int pavilhaoId;
 
     public CelaPK() {
@@ -72,9 +67,6 @@ public class CelaPK implements Serializable {
         return true;
     }
 
-    @Override
-    public String toString() {
-        return "modelo.CelaPK[ celaId=" + celaId + ", pavilhaoId=" + pavilhaoId + " ]";
-    }
+   
     
 }
