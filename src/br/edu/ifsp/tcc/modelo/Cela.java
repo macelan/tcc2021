@@ -28,10 +28,7 @@ public class Cela implements Serializable {
     @ManyToOne
     @JoinColumn(name = "pavilhao_id", referencedColumnName = "pavilhao_id", insertable = false, updatable = false)
     private Pavilhao pavilhao;
-    
    
- 
-    
     private List<MovimentacaoInterna> movimentacoes = new ArrayList<>();
  
  

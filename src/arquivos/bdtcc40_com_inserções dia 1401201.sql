@@ -229,19 +229,16 @@ INSERT INTO `evento_coletivo` (`evento_coletivo_id`, `pavilhao_id`, `data_ocorri
 
 CREATE TABLE sindicancia(
 		sindicancia_id		INT auto_increment,
-		funcionario_id     int,
-        sentenciado_id     int,
 		relato	VARCHAR(500),
 		data_ocorrido	Date,
 		data_registro   datetime,
         PRIMARY KEY (sindicancia_id)
 );
-INSERT INTO `sindicancia` (`sindicancia_id`, `funcionario_id`, `sentenciado_id`, `relato`, `data_ocorrido`, `data_registro`) VALUES
-(1, NULL, NULL, 'Tentou fugir no latão de lixo.', '2020-02-02', '2020-07-07 09:20:48'),
-(2, NULL, NULL, 'Matou a companheira enforcada, por não aceitar fim de relacionamento.', '0101-01-01', '2020-07-08 15:30:13'),
-(3, NULL, NULL, 'Danificou cela ao queimar colchão.', '1516-03-15', '2020-07-08 15:31:42'),
-(4, NULL, NULL, 'Não se apresentou na hora da contagem e ao ser repreendido atacou o Policial Penal verbalmente.', '1516-03-15', '2020-07-08 15:31:58');
-
+INSERT INTO `sindicancia` (`sindicancia_id`,`relato`, `data_ocorrido`, `data_registro`) VALUES
+(1, 'Tentou fugir no latão de lixo.', '2020-02-02', '2020-07-07 09:20:48'),
+(2, 'Matou a companheira enforcada, por não aceitar fim de relacionamento.', '0101-01-01', '2020-07-08 15:30:13'),
+(3, 'Danificou cela ao queimar colchão.', '1516-03-15', '2020-07-08 15:31:42'),
+(4, 'Não se apresentou na hora da contagem e ao ser repreendido atacou o Policial Penal verbalmente.', '1516-03-15', '2020-07-08 15:31:58');
  CREATE TABLE funcionario(
 		funcionario_id         int auto_increment,
 		presidio_id       	int,

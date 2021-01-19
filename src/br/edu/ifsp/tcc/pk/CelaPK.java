@@ -5,83 +5,76 @@
  */
 package br.edu.ifsp.tcc.pk;
 
-import br.edu.ifsp.tcc.modelo.Pavilhao;
 import java.io.Serializable;
-import java.util.Objects;
+import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import javax.persistence.Embedded;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 /**
  *
  * @author Programar
  */
 @Embeddable
-public class CelaPK implements Serializable{
-    
-    private int Cela_id;
-    @ManyToOne
-    @JoinColumn(name = "pavilhao_id", referencedColumnName = "pavilhao_id", insertable = false, updatable = false)
-    private Pavilhao pavilhao;
+public class CelaPK implements Serializable {
+
+    @Basic(optional = false)
+    @Column(name = "cela_id")
+    private int celaId;
+    @Basic(optional = false)
+    @Column(name = "pavilhao_id")
+    private int pavilhaoId;
 
     public CelaPK() {
     }
 
-    public CelaPK(int Cela_id, Pavilhao pavilhao) {
-        this.Cela_id = Cela_id;
-        this.pavilhao = pavilhao;
+    public CelaPK(int celaId, int pavilhaoId) {
+        this.celaId = celaId;
+        this.pavilhaoId = pavilhaoId;
     }
 
-    public int getCela_id() {
-        return Cela_id;
+    public int getCelaId() {
+        return celaId;
     }
 
-    public void setCela_id(int Cela_id) {
-        this.Cela_id = Cela_id;
+    public void setCelaId(int celaId) {
+        this.celaId = celaId;
     }
 
-    public Pavilhao getPavilhao() {
-        return pavilhao;
+    public int getPavilhaoId() {
+        return pavilhaoId;
     }
 
-    public void setPavilhao(Pavilhao pavilhao) {
-        this.pavilhao = pavilhao;
+    public void setPavilhaoId(int pavilhaoId) {
+        this.pavilhaoId = pavilhaoId;
     }
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 79 * hash + this.Cela_id;
-        hash = 79 * hash + Objects.hashCode(this.pavilhao);
+        int hash = 0;
+        hash += (int) celaId;
+        hash += (int) pavilhaoId;
         return hash;
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof CelaPK)) {
             return false;
         }
-        if (getClass() != obj.getClass()) {
+        CelaPK other = (CelaPK) object;
+        if (this.celaId != other.celaId) {
             return false;
         }
-        final CelaPK other = (CelaPK) obj;
-        if (this.Cela_id != other.Cela_id) {
-            return false;
-        }
-        if (!Objects.equals(this.pavilhao, other.pavilhao)) {
+        if (this.pavilhaoId != other.pavilhaoId) {
             return false;
         }
         return true;
     }
-    
-    
-    
-    
+
+    @Override
+    public String toString() {
+        return "modelo.CelaPK[ celaId=" + celaId + ", pavilhaoId=" + pavilhaoId + " ]";
+    }
     
 }

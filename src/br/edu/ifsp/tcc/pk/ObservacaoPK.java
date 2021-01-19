@@ -15,29 +15,29 @@ import javax.persistence.Embeddable;
  * @author Programar
  */
 @Embeddable
-public class MovimentacaoInternaPK implements Serializable {
+public class ObservacaoPK implements Serializable {
 
     @Basic(optional = false)
-    @Column(name = "movimentacao_interna_id")
-    private int movimentacaoInternaId;
+    @Column(name = "observacao_id")
+    private int observacaoId;
     @Basic(optional = false)
     @Column(name = "sentenciado_id")
     private int sentenciadoId;
 
-    public MovimentacaoInternaPK() {
+    public ObservacaoPK() {
     }
 
-    public MovimentacaoInternaPK(int movimentacaoInternaId, int sentenciadoId) {
-        this.movimentacaoInternaId = movimentacaoInternaId;
+    public ObservacaoPK(int observacaoId, int sentenciadoId) {
+        this.observacaoId = observacaoId;
         this.sentenciadoId = sentenciadoId;
     }
 
-    public int getMovimentacaoInternaId() {
-        return movimentacaoInternaId;
+    public int getObservacaoId() {
+        return observacaoId;
     }
 
-    public void setMovimentacaoInternaId(int movimentacaoInternaId) {
-        this.movimentacaoInternaId = movimentacaoInternaId;
+    public void setObservacaoId(int observacaoId) {
+        this.observacaoId = observacaoId;
     }
 
     public int getSentenciadoId() {
@@ -51,7 +51,7 @@ public class MovimentacaoInternaPK implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (int) movimentacaoInternaId;
+        hash += (int) observacaoId;
         hash += (int) sentenciadoId;
         return hash;
     }
@@ -59,11 +59,11 @@ public class MovimentacaoInternaPK implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof MovimentacaoInternaPK)) {
+        if (!(object instanceof ObservacaoPK)) {
             return false;
         }
-        MovimentacaoInternaPK other = (MovimentacaoInternaPK) object;
-        if (this.movimentacaoInternaId != other.movimentacaoInternaId) {
+        ObservacaoPK other = (ObservacaoPK) object;
+        if (this.observacaoId != other.observacaoId) {
             return false;
         }
         if (this.sentenciadoId != other.sentenciadoId) {
@@ -74,8 +74,7 @@ public class MovimentacaoInternaPK implements Serializable {
 
     @Override
     public String toString() {
-        return "modelo.MovimentacaoInternaPK[ movimentacaoInternaId=" + movimentacaoInternaId + ", sentenciadoId=" + sentenciadoId + " ]";
+        return "modelo.ObservacaoPK[ observacaoId=" + observacaoId + ", sentenciadoId=" + sentenciadoId + " ]";
     }
     
 }
-
