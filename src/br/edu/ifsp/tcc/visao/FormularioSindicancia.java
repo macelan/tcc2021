@@ -183,11 +183,8 @@ public class FormularioSindicancia extends javax.swing.JDialog {
         f.setRelato(txtAreaSindicancia.getText());
         f.setDataRegisto(new Date());
         f.setFuncionarios(listafuncionarios);
-        System.out.println(listafuncionarios);
-        System.out.println("cheguei ate aqui");
-        System.out.println(listasentenciados);
         f.setSentenciados(listasentenciados);
-        System.out.println(listasentenciados);
+        System.err.println("Erro: " + listasentenciados);
         controlesindicancia.salvar(f);
         limparCampos();
         //carregarLista(); // verificar mais tarde
