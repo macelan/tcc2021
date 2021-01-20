@@ -19,7 +19,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "cela")
-@IdClass(CelaPK.class)
+//@IdClass(CelaPK.class)
 public class Cela implements Serializable {
     @Id
     private int Cela_id;
