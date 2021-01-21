@@ -307,8 +307,7 @@ public class ConsultarSentenciado extends javax.swing.JDialog {
     private void jButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairActionPerformed
         // TODO add your handling code here
         dispose();
-        
-        
+   
     }//GEN-LAST:event_jButtonSairActionPerformed
     //Criar entrada para a outra tela visualizar
     public List<Sentenciado> getListaSentenciadosSelecionados() {

@@ -22,7 +22,7 @@ public class ConsultarFuncionario extends javax.swing.JDialog {
     // private ItemOrcamentoAlimentoDAO dao = new ItemOrcamentoAlimentoDAO();
     private ControleFuncionario controle = new ControleFuncionario();
     private List<Funcionario> listaFuncionarios = new ArrayList();
-    private List<Funcionario> listaFuncionariosSentenciados = new ArrayList();
+    private List<Funcionario> listaFuncionariosSelecionados = new ArrayList();
     Funcionario f = new Funcionario();
     private Sindicancia sindicancia;
 
@@ -307,8 +307,8 @@ public class ConsultarFuncionario extends javax.swing.JDialog {
         int linha = jtbPesqFuncionario.getSelectedRow();
         if (linha > -1) {
             Funcionario f = listaFuncionarios.get(linha);
-            listaFuncionariosSentenciados.add(f);
-            System.out.println(listaFuncionariosSentenciados.size());
+            listaFuncionariosSelecionados.add(f);
+            System.out.println(listaFuncionariosSelecionados.size());
         } else {
             JOptionPane.showMessageDialog(this, "Selecione uma linha");
         }    
@@ -316,7 +316,7 @@ public class ConsultarFuncionario extends javax.swing.JDialog {
 
     //Criar entrada
     public List<Funcionario> getListaFuncionariosSelecionados() {
-        return listaFuncionariosSentenciados;
+        return listaFuncionariosSelecionados;
     }
     
 /**

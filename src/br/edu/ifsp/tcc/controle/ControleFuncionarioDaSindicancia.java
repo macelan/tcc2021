@@ -12,21 +12,21 @@ import javax.persistence.EntityManager;
  *
  * @author Programar
  */
-public class ControleSentenciadoDaSindicancia {
+public class ControleFuncionarioDaSindicancia {
 
-    public void excluir(ControleSentenciadoDaSindicancia item) {
+    public void excluir(ControleFuncionarioDaSindicancia item) {
 
         EntityManager em = Conexao.getConexao();
 
         em.getTransaction().begin();
-        ControleSentenciadoDaSindicancia sentSind = em.merge(item);
+        ControleFuncionarioDaSindicancia sentSind = em.merge(item);
         em.remove(sentSind);
         em.getTransaction().commit();
         System.out.println("removeu o item");
 
     }
     
-       public void salvar(ControleSentenciadoDaSindicancia item) {
+     public void salvar(ControleFuncionarioDaSindicancia item) {
 
         EntityManager em = Conexao.getConexao();
 

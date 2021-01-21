@@ -42,7 +42,7 @@ public class FormularioSindicancia extends javax.swing.JDialog {
     private List<Sentenciado> listasentenciados = new ArrayList();
     // DAO
     private ControleSentenciadoDaSindicancia controleSentenciadoDaSindicancia = new ControleSentenciadoDaSindicancia();
-   // private ControleFuncionarioDaSindicancia contBebida = new ItemOrcamentoBebidaDAO();
+   // private ControleFuncionarioDaSindicancia controleFuncionarioDaSindicancia = new controleFuncionarioDaSindicancia();
     
     //teste -  duvida tenho que fazer um controle para tabela sindicancia_funcionario
 //    private List<Sindi> listafuncionarios = new ArrayList();
@@ -62,7 +62,6 @@ public class FormularioSindicancia extends javax.swing.JDialog {
         this.f = sindicancia;
         f = controlesindicancia.novoSindicancia(f);//persistindo um vazio para obter um id para prosseguir com o orçamento
     }
-    
     
     public void atualizarTodasTabelas() {
     atualizaTabelaSentenciado();
@@ -641,13 +640,11 @@ public class FormularioSindicancia extends javax.swing.JDialog {
         listasentenciados.clear();
         ConsultarSentenciado tela = new ConsultarSentenciado(null, true);
         tela.setLocationRelativeTo(this);
-        tela.setSindicancia(f);// passando o sindicancia para a tela de pesquisa de sentenciaco para ser persistido
+        tela.setSindicancia(f);// passando a sindicancia para a tela de pesquisa de sentenciado para ser persistir
         tela.setVisible(true);
         listasentenciados.addAll(tela.getListaSentenciadosSelecionados());
         System.out.println(listasentenciados);
-        atualizaTabelaSentenciado();
-            
-     
+        atualizaTabelaSentenciado(); 
     }//GEN-LAST:event_btAdicionaSentenciadoSindicanciaActionPerformed
 
     private void jButtonPesquisaSindicanciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisaSindicanciaActionPerformed
@@ -668,11 +665,11 @@ public class FormularioSindicancia extends javax.swing.JDialog {
     private void btAdicionaFuncionarioSindicanciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAdicionaFuncionarioSindicanciaActionPerformed
         // TODO add your handling code here:
         listafuncionarios.clear();
-        ConsultarFuncionario telaf = new ConsultarFuncionario(null, true);
-        telaf.setLocationRelativeTo(this);
-        telaf.setSindicancia(f);// passando o sindicancia para a tela de pesquisa de funcionariopara ser persistido
-        telaf.setVisible(true);
-        listafuncionarios.addAll(telaf.getListaFuncionariosSelecionados());
+        ConsultarFuncionario tela = new ConsultarFuncionario(null, true);
+        tela.setLocationRelativeTo(this);
+        tela.setSindicancia(f);// passando a sindicancia para a tela de pesquisa de funcionariopara ser persistido
+        tela.setVisible(true);
+        listafuncionarios.addAll(tela.getListaFuncionariosSelecionados());
         atualizaTabelaFuncionario();
     }//GEN-LAST:event_btAdicionaFuncionarioSindicanciaActionPerformed
 
