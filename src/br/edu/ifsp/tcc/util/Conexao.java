@@ -19,7 +19,7 @@ public class Conexao {
 
     public static EntityManager getConexao() {
         if (emf == null) {
-            emf = Persistence.createEntityManagerFactory ("Tcc_V201PU");
+            emf = Persistence.createEntityManagerFactory ("PersistenciaPU");
         }
         return emf.createEntityManager();
     }
