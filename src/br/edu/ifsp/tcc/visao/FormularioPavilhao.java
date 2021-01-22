@@ -549,8 +549,8 @@ public class FormularioPavilhao extends javax.swing.JDialog {
     private void btnAdicionarCelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarCelaActionPerformed
         // TODO add your handling code here:
         Cela c = new Cela();
-        c.setCela_id(Integer.parseInt(txtNumero.getText()));
         c.setLotacao(Integer.parseInt(txtLotacao.getText()));
+        c.setNumeroCela(Integer.parseInt(txtNumero.getText()));
         controle.salvar(f);
         limparCampos();
         carregarLista();
@@ -562,7 +562,7 @@ public class FormularioPavilhao extends javax.swing.JDialog {
         // TODO add your handling code here:
         /// Aqui é com  o mouse
         Cela c = new Cela();
-        c.setCela_id(Integer.parseInt(txtNumero.getText()));
+        c.setNumeroCela(Integer.parseInt(txtNumero.getText()));
         c.setLotacao(Integer.parseInt(txtLotacao.getText()));
         controle.salvar(f);
         limparCampos();

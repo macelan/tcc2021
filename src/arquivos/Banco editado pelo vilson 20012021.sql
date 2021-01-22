@@ -17,7 +17,7 @@ CREATE TABLE pavilhao (
 -- -----------------------------------------------------
 CREATE TABLE  cela (
   cela_id INT NOT NULL AUTO_INCREMENT,
-  numerocela INT NULL,
+  numero_cela INT NULL,
   pavilhao_id INT NOT NULL,
   lotacao INT NULL DEFAULT NULL,
   PRIMARY KEY (cela_id),

@@ -7,6 +7,8 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
@@ -22,7 +24,11 @@ import javax.persistence.Table;
 //@IdClass(CelaPK.class)
 public class Cela implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Cela_id;
+    
+    @Column(name = "numero_cela")
+    private Integer numeroCela;
     
     @Column(name = "lotacao", nullable = false)
     private Integer lotacao; 
@@ -47,8 +53,9 @@ public class Cela implements Serializable {
     public Cela() {
     }
 
-    public Cela(int Cela_id, Integer lotacao, Pavilhao pavilhao) {
+    public Cela(int Cela_id, Integer numeroCela, Integer lotacao, Pavilhao pavilhao) {
         this.Cela_id = Cela_id;
+        this.numeroCela = numeroCela;
         this.lotacao = lotacao;
         this.pavilhao = pavilhao;
     }
@@ -59,6 +66,14 @@ public class Cela implements Serializable {
 
     public void setCela_id(int Cela_id) {
         this.Cela_id = Cela_id;
+    }
+
+    public Integer getNumeroCela() {
+        return numeroCela;
+    }
+
+    public void setNumeroCela(Integer numeroCela) {
+        this.numeroCela = numeroCela;
     }
 
     public Integer getLotacao() {
@@ -85,11 +100,6 @@ public class Cela implements Serializable {
         this.movimentacoes = movimentacoes;
     }
 
-    @Override
-    public String toString() {
-        return "Cela{" + "Cela_id=" + Cela_id + ", lotacao=" + lotacao + ", pavilhao=" + pavilhao + ", movimentacoes=" + movimentacoes + '}';
-    }
-
-    
+  
 }
 
