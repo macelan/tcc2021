@@ -139,7 +139,7 @@ public class FormularioFuncionario extends javax.swing.JDialog {
     private void initComponents() {
         bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
-        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("Tcc_V201PU").createEntityManager();
+        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("PersistenciaPU").createEntityManager();
         queryPresidioFuncionario = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("from Presidio p order by p.sigla");
         listPresidioFuncionario = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : org.jdesktop.observablecollections.ObservableCollections.observableList(queryPresidioFuncionario.getResultList());
         painelSentenciado = new javax.swing.JPanel();

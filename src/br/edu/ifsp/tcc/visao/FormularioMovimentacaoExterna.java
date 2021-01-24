@@ -134,7 +134,7 @@ public class FormularioMovimentacaoExterna extends javax.swing.JDialog {
     private void initComponents() {
         bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
-        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("Tcc_V201PU").createEntityManager();
+        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("PersistenciaPU").createEntityManager();
         queryPresidio = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("from Presidio p order by p.sigla");
         listPresidio = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : org.jdesktop.observablecollections.ObservableCollections.observableList(queryPresidio.getResultList());
         painelSentenciado = new javax.swing.JPanel();

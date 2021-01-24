@@ -132,7 +132,7 @@ public class FormularioObservacao extends javax.swing.JDialog {
     private void initComponents() {
         bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
-        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("Tcc_V201PU").createEntityManager();
+        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("PersistenciaPU").createEntityManager();
         querySentenciado = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("from Sentenciado f order by f.matricula");
         listSentenciado = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : org.jdesktop.observablecollections.ObservableCollections.observableList(querySentenciado.getResultList());
         painelLogin = new javax.swing.JPanel();

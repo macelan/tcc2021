@@ -39,7 +39,7 @@ public class FormularioPavilhao extends javax.swing.JDialog {
         dtm.setNumRows(0);//apagando todas as linhas / o zero serva para apagar as linhas "é muito rapido"
         jTableCela.removeAll();
         for (Cela f : lista) {
-        dtm.addRow(new Object[]{f.getCela_id(), f.getLotacao()}); // Object é um vetor ou coleção com ele não pecisa converter
+        dtm.addRow(new Object[]{f.getNumeroCela(), f.getLotacao()}); // Object é um vetor ou coleção com ele não pecisa converter
         }
        
     }

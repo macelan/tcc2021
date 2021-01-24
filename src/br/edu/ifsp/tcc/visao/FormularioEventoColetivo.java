@@ -132,7 +132,7 @@ public class FormularioEventoColetivo extends javax.swing.JDialog {
     private void initComponents() {
         bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
-        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("Tcc_V201PU").createEntityManager();
+        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("PersistenciaPU").createEntityManager();
         queryPavilhao = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("from Pavilhao f order by f.sigla");
         listPavilhao = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : org.jdesktop.observablecollections.ObservableCollections.observableList(queryPavilhao.getResultList());
         painelTabela = new javax.swing.JPanel();
