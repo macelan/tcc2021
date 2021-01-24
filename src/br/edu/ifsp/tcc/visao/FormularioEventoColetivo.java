@@ -177,6 +177,11 @@ public class FormularioEventoColetivo extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
+        jTableEventosColetivo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableEventosColetivoMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableEventosColetivo);
 
         jButtonPesEventoColetivo.setFont(new java.awt.Font("Arial Unicode MS", 1, 14)); // NOI18N
@@ -415,6 +420,8 @@ public class FormularioEventoColetivo extends javax.swing.JDialog {
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
+        trataEdicao(false);
+        limparCampos();
         carregarLista();
         atualizaTabela();
         limparCampos();
@@ -465,6 +472,13 @@ public class FormularioEventoColetivo extends javax.swing.JDialog {
         // TODO add your handling code here:
         pesquisar();
     }//GEN-LAST:event_txtLocalizarEventoColetivoKeyReleased
+
+    private void jTableEventosColetivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableEventosColetivoMouseClicked
+        // TODO add your handling code here:
+    vincularCampos();
+    dateEventoColetivo.requestFocus();
+
+    }//GEN-LAST:event_jTableEventosColetivoMouseClicked
 
     /**
      * @param args the command line arguments

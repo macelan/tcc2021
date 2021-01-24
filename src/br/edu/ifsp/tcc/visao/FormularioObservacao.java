@@ -406,10 +406,13 @@ public class FormularioObservacao extends javax.swing.JDialog {
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:trataEdicao(false);
+        trataEdicao(false);
+        limparCampos();
         carregarLista();
         atualizaTabela();
         limparCampos();
         txtLocalizarObsercacao.setEnabled(false);
+           
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
