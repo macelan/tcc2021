@@ -31,7 +31,7 @@ import javax.persistence.TemporalType;
 public class Sindicancia implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "sindicancia_id", nullable = false) 
     private Integer id;
     @Temporal(TemporalType.DATE)
@@ -53,15 +53,15 @@ public class Sindicancia implements Serializable {
     
     @ManyToMany
     @JoinTable(name= "sindicancia_funcionario",joinColumns = {
-    @JoinColumn(name="sindicancia_id")
+    @JoinColumn(name="funcionario_id")
     },
-    inverseJoinColumns = {@JoinColumn(name = "funcionario_id")})
+    inverseJoinColumns = {@JoinColumn(name = "sindicancia_id")})
     private List<Funcionario> funcionarios = new ArrayList<>();
     
     
     @ManyToMany
     @JoinTable(name= "sindicancia_sentenciado",joinColumns = {
-    @JoinColumn(name="sindicancia_id")
+    @JoinColumn(name="sentenciado_id")
     },
     inverseJoinColumns = {@JoinColumn(name = "sindicancia_id")})
     private List<Sentenciado> sentenciados = new ArrayList<>();

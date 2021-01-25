@@ -40,22 +40,14 @@ public class ControleFaccao implements Serializable {
     public void remover(Faccao f) {
         EntityManager em = Conexao.getConexao();
         Faccao faccao;// crio uma variavel tipo funcionario
-        try {
+       
 
             em.getTransaction().begin();
             faccao = em.merge(f);//recebe o parametro nesta variavel funcionario criada
             em.remove(faccao);
             em.getTransaction().commit();
 
-        } catch (Exception e) {
-            System.out.println("Erro ao remover " + e.getMessage());
-            if (!em.getTransaction().isActive()) {// se a conexão não estiver ativa
-                em.getTransaction().begin();
-                em.getTransaction().rollback();// desfaz transação
-                em.getTransaction().commit();
-            }
-
-        }
+        
 
     }
 

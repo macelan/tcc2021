@@ -33,9 +33,8 @@ public class Presidio implements Serializable {
     @Column(name = "cidade", length = 30, nullable = false)
     private String cidade;
     
-  @OneToOne
-  @JoinColumn(name="coordenadoria_id")
-//  @JoinColumn(name="cordenadoria_id", referencedColumnName = "coordenadoria_id", nullable = false)
+    @OneToOne
+    @JoinColumn(name="coordenadoria_id")
     private Coordenadoria coordenadoria;
    
     //Coleção

@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Entity;
@@ -31,7 +32,7 @@ import javax.persistence.TemporalType;
 @Table(name = "sentenciado")
 public class Sentenciado implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "sentenciado_id",nullable = false)
     private Integer id;
     @Column(name = "matricula",length = 13, nullable = false)
@@ -47,11 +48,13 @@ public class Sentenciado implements Serializable {
     private String aliases;
     @Column(name = "registro_ativo", nullable = false)
     private boolean ativo;
+    
+    
     @OneToOne
     @JoinColumn(name = "faccao_id")
     private Faccao faccao;
     //Coleções
-    @ManyToMany(mappedBy = "sentenciados")// sentenciao é o nome do atributo na entidade sindicancia
+    @ManyToMany(mappedBy = "sentenciados", cascade = CascadeType.ALL)// sentenciao é o nome do atributo na entidade sindicancia
     private List<Sindicancia> sindicancias = new ArrayList<>();
     
  

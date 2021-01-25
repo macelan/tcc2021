@@ -1,19 +1,16 @@
 package br.edu.ifsp.tcc.modelo;
 
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 /**
  *
@@ -23,8 +20,6 @@ import javax.persistence.Transient;
 @Table(name = "faccao")
 public class Faccao implements Serializable {
 
-    @Transient
-    private PropertyChangeSupport changeSupport = new PropertyChangeSupport(this);
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,7 +30,7 @@ public class Faccao implements Serializable {
     @Column(name = "sigla_faccao", length = 10, nullable = false)
     private String siglaFaccao;
     
-//    @OneToMany (mappedBy = "faccao")
+   @OneToMany (mappedBy = "faccao")
 //    @JoinColumn (name = "faccao_id")
     private List<Sentenciado> sentenciados = new ArrayList<>();
     
@@ -45,22 +40,14 @@ public class Faccao implements Serializable {
 //    private Coordenadoria coordenadoria;
 //    @OneToMany(mappedBy = "preCod")
 //    private List<Funcionario> funcionarioList;
-    
-public Faccao() {
+
+    public Faccao() {
     }
 
     public Faccao(Integer id, String nome, String siglaFaccao) {
         this.id = id;
         this.nome = nome;
         this.siglaFaccao = siglaFaccao;
-    }
-
-    public PropertyChangeSupport getChangeSupport() {
-        return changeSupport;
-    }
-
-    public void setChangeSupport(PropertyChangeSupport changeSupport) {
-        this.changeSupport = changeSupport;
     }
 
     public Integer getId() {
@@ -95,14 +82,33 @@ public Faccao() {
         this.sentenciados = sentenciados;
     }
 
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 47 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Faccao other = (Faccao) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return true;
+    }
+   
     
- //    public List<Funcionario> getFuncionarioList() {
-//        return funcionarioList;
-//    }
-//
-//    public void setFuncionarioList(List<Funcionario> funcionarioList) {
-//        this.funcionarioList = funcionarioList;
-//    }
+    
    @Override
     public String toString() {
         return this.getSiglaFaccao();

@@ -102,6 +102,9 @@ public class Pavilhao implements Serializable {
     public String toString() {
     return this.getSigla();
     }
+    public void addCela(Cela c){
+        celas.add(c);
+    }
     
  
 }

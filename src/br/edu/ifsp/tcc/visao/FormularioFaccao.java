@@ -409,6 +409,8 @@ public class FormularioFaccao extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, "Selecione uma linha da tabela para excluir", "Atenção", JOptionPane.WARNING_MESSAGE);
         } else {
             Faccao f = faccoes.get(jTableFaccao.getSelectedRow());
+            System.out.println("--------------");
+            System.out.println(f.getNome());
             controle.remover(f);
         }
         carregarLista();

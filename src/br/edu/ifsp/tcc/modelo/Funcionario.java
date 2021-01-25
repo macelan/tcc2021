@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -49,7 +50,7 @@ public class Funcionario implements Serializable {
    @JoinColumn(name="Presidio_id")
    private Presidio presidio;     /*Aqui tem mesmo Presidio? Sera que quando é não-identificado não viria como atributo*/  
    //Coleção
-   @ManyToMany(mappedBy = "funcionarios")
+   @ManyToMany(mappedBy = "funcionarios",  cascade = CascadeType.ALL)
     private List<Sindicancia> sindicancias = new ArrayList<>();
  
  

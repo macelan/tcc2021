@@ -20,16 +20,10 @@ public class ControleSindicancia implements Serializable{
     
 public void salvar(Sindicancia a) {
         EntityManager em = Conexao.getConexao();
-        {
-            try {
                 em.getTransaction().begin();
                 em.merge(a);
                 em.getTransaction().commit();
-            } catch (Exception e) {
-                System.out.println("Erro ao tentar salvar " + e.getMessage());
-            }
-
-        }
+  
     }
 
 

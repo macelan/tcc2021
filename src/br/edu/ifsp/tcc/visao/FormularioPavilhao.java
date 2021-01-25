@@ -5,6 +5,7 @@
  */
 package br.edu.ifsp.tcc.visao;
 
+import br.edu.ifsp.tcc.controle.ControleCela;
 import br.edu.ifsp.tcc.controle.ControlePavilhao;
 import br.edu.ifsp.tcc.modelo.Cela;
 import br.edu.ifsp.tcc.modelo.Pavilhao;
@@ -24,6 +25,7 @@ public class FormularioPavilhao extends javax.swing.JDialog {
     private ControlePavilhao controle = new ControlePavilhao();
     private List<Pavilhao> pavilhoes = new ArrayList();
     Pavilhao f = new Pavilhao();
+    private ControleCela controleCela = new ControleCela();
 
     public void atualizaTabela() {
         DefaultTableModel dtm = (DefaultTableModel) jTablePavilhao.getModel(); // manipulador de tabela DefaultTableModel
@@ -528,17 +530,19 @@ public class FormularioPavilhao extends javax.swing.JDialog {
 
     private void jTablePavilhaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTablePavilhaoMouseClicked
         // TODO add your handling code here:
-        int linha;
-        Pavilhao f;
         if (evt.getClickCount() == 1) {
+              buscaCelas();
+        }
+
+    }//GEN-LAST:event_jTablePavilhaoMouseClicked
+    public void buscaCelas(){
+        int linha;
             vincularCampos();
             linha = jTablePavilhao.getSelectedRow();
             f = pavilhoes.get(linha);
             atualizaTabelaCelas(f.getCelas());
             /// metodo burcar todos as celas do pavilhão
-        }
-    }//GEN-LAST:event_jTablePavilhaoMouseClicked
-
+    }
     private void txtNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNumeroActionPerformed
@@ -552,11 +556,14 @@ public class FormularioPavilhao extends javax.swing.JDialog {
         Cela c = new Cela();
         c.setLotacao(Integer.parseInt(txtLotacao.getText()));
         c.setNumeroCela(Integer.parseInt(txtNumero.getText()));
-        controle.salvar(f);
+        c.setPavilhao(f);
+        controleCela.salvar(c);
+
         limparCampos();
         carregarLista();
         atualizaTabela();
-    
+        f.addCela(c);
+        atualizaTabelaCelas(f.getCelas());
     }//GEN-LAST:event_btnAdicionarCelaActionPerformed
 
     private void btnAdicionarCelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdicionarCelaMouseClicked
