@@ -12,20 +12,20 @@ import java.util.Objects;
  *
  * @author Programar
  */
-public class SentenciadoDaSindicanciaPK implements Serializable{
+public class FuncionarioDaSindicanciaPK implements Serializable{
     
-//    private Integer sentenciado_id;
+//    private Integer funcionario_id;
 //    private Integer sindicancia_id;
 //
-//    public SentenciadoDaSindicanciaPK() {
+//    public FuncionarioDaSindicanciaPK() {
 //    }
 //
 //    public Integer getFuncionario_id() {
-//        return sentenciado_id;
+//        return funcionario_id;
 //    }
 //
 //    public void setFuncionario_id(Integer funcionario_id) {
-//        this.sentenciado_id = funcionario_id;
+//        this.funcionario_id = funcionario_id;
 //    }
 //
 //    public Integer getSindicancia_id() {
@@ -39,7 +39,7 @@ public class SentenciadoDaSindicanciaPK implements Serializable{
 //    @Override
 //    public int hashCode() {
 //        int hash = 7;
-//        hash = 19 * hash + Objects.hashCode(this.sentenciado_id);
+//        hash = 19 * hash + Objects.hashCode(this.funcionario_id);
 //        hash = 19 * hash + Objects.hashCode(this.sindicancia_id);
 //        return hash;
 //    }
@@ -55,8 +55,8 @@ public class SentenciadoDaSindicanciaPK implements Serializable{
 //        if (getClass() != obj.getClass()) {
 //            return false;
 //        }
-//        final SentenciadoDaSindicanciaPK other = (SentenciadoDaSindicanciaPK) obj;
-//        if (!Objects.equals(this.sentenciado_id, other.sentenciado_id)) {
+//        final FuncionarioDaSindicanciaPK other = (FuncionarioDaSindicanciaPK) obj;
+//        if (!Objects.equals(this.funcionario_id, other.funcionario_id)) {
 //            return false;
 //        }
 //        if (!Objects.equals(this.sindicancia_id, other.sindicancia_id)) {
