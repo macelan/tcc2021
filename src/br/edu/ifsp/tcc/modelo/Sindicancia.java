@@ -43,27 +43,31 @@ public class Sindicancia implements Serializable {
     @Column(name = "relato", length = 500, nullable = false)
     private String relato;
      
-//     @ManyToMany
-//    @JoinTable(name = "aluno_matricula", joinColumns = {
-//     @JoinColumn(name = "aluno_codigo")
+    
+//    @ManyToMany
+//    @JoinTable(name= "sindicancia_funcionario",joinColumns = {
+//    @JoinColumn(name="funcionario_id")
 //    },
-//      inverseJoinColumns = {@JoinColumn(name = "matricula_codigo")})
-//    private List<Matricula> matriculas;
-
+//    inverseJoinColumns = {@JoinColumn(name = "sindicancia_id")})
+//    private List<Funcionario> funcionarios = new ArrayList<>();
+//    
+//    
+//    @ManyToMany
+//    @JoinTable(name= "sindicancia_sentenciado",joinColumns = {
+//    @JoinColumn(name="sentenciado_id")
+//    },
+//    inverseJoinColumns = {@JoinColumn(name = "sindicancia_id")})
+//    private List<Sentenciado> sentenciados = new ArrayList<>();
     
+    /*  retirado do JPA-MIni-Livro */
     @ManyToMany
-    @JoinTable(name= "sindicancia_funcionario",joinColumns = {
-    @JoinColumn(name="funcionario_id")
-    },
-    inverseJoinColumns = {@JoinColumn(name = "sindicancia_id")})
+    @JoinTable(name= "sindicancia_funcionario", joinColumns = @JoinColumn(name="funcionario_id"),
+    inverseJoinColumns = @JoinColumn(name = "sindicancia_id"))
     private List<Funcionario> funcionarios = new ArrayList<>();
-    
-    
+        
     @ManyToMany
-    @JoinTable(name= "sindicancia_sentenciado",joinColumns = {
-    @JoinColumn(name="sentenciado_id")
-    },
-    inverseJoinColumns = {@JoinColumn(name = "sindicancia_id")})
+    @JoinTable(name= "sindicancia_sentenciado", joinColumns = @JoinColumn(name="sentenciado_id"),
+    inverseJoinColumns = @JoinColumn(name = "sentenciado_id"))
     private List<Sentenciado> sentenciados = new ArrayList<>();
     
 
